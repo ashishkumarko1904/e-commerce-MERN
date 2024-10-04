@@ -21,7 +21,7 @@ const Loginpage = () => {
       <input className="input" name="password" placeholder="Enter Password" type="password"/>
       </div>
       
-      <button className="btn" type="button">login</button>
+      <button className="btn" type="submit">login</button>
       </div>
       
     </div>

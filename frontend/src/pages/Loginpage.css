@@ -1,6 +1,6 @@
 .loginform{
     width: 400px;
-    height: 450px;
+    height: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,4 +69,10 @@ input:focus {
     justify-content: center;
     background-color: whitesmoke;
 }
-/*ToDO: add responsive style later*/
+/*ToDO: add responsive style later:i guess done*/
+@media (max-width:320px) {
+    .loginform{
+        width: 280px;
+    }
+    
+}
