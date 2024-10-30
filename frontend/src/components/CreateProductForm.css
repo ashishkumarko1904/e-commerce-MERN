@@ -1,0 +1,80 @@
+/* Form container */
+#newproduct {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form fields */
+  #newproduct label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333;
+  }
+  
+  #newproduct input[type="text"],
+  #newproduct input[type="number"],
+  #newproduct input[type="file"],
+  #newproduct select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+  
+  #newproduct input:focus,
+  #newproduct select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Button styling */
+  #newproduct button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #newproduct button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  #newproduct button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  /* Image upload feedback */
+  #newproduct span {
+    display: block;
+    color: green;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    #newproduct {
+      padding: 1rem;
+    }
+  }
+  

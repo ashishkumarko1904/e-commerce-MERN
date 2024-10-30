@@ -1,0 +1,7 @@
+.grid-products{
+    display: grid; /* Create a grid container */
+    grid-template-columns: repeat(5, 1fr); /* Create 3 equal columns */
+    grid-template-rows: repeat(2, 100px); /* Create 2 rows of 100px each */
+    gap: 10px;
+    padding: 3rem;
+}

@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 //allow us to parse the request body
-app.use(express.json());
+app.use(express.json({limit:"10mb"}));
 app.use(cookieParser());
 /* 
 authRoutes is a collection of routes defined in auth.route.js.

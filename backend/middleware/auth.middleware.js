@@ -29,7 +29,8 @@ try {
 
 //adminRoute()-middleware
 export const adminRoute = (req,res,next)=>{
-    if(req.user && req.role === "admin"){
+    
+    if(req.user && req.user.role === "admin"){
         next();
     }
     else{

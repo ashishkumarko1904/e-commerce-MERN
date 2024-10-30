@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: black;
+    color:white;
     font-size: medium;
     text-decoration: none;
     gap: 10px;
@@ -72,5 +72,10 @@
   .search-input{
     width:90%;
     height: 3rem;
+  }
+  .gp-span{
+    display: flex;
+    flex-direction: row;
+
   }
 /* Todo: add responsive style*/

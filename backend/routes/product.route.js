@@ -4,7 +4,7 @@ import { protectRoute,adminRoute } from "../middleware/auth.middleware.js";
 import { toggleFeaturedProducts } from "../controllers/product.controller.js";
 const router = express.Router();
 
-router.get("/",protectRoute,adminRoute,getAllProducts);
+router.get("/",getAllProducts);
 router.get("/featured",getFeaturedProducts);
 router.get("/category/:category",getProductsByCategory);
 router.get("/recommendation",getRecommendedProducts);
