@@ -14,14 +14,13 @@ export const useCartStore = create((set,get)=>({
 			toast.success("Product added to cart");
 			
 
-			set((prevState) => {
+			set(prevState => {
 
 				const existingItem = prevState.cart.find((item) => item._id === product._id);
-				const newCart = existingItem
-					? prevState.cart.map((item) =>
+				console.log("this is",existingItem);
+				const newCart = existingItem? prevState.cart.map((item) =>
 							item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
-					  )
-					: [...prevState.cart, { ...product, quantity: 1 }];
+					  ): [...prevState.cart, { ...product, quantity: 1 }];
 				return {cart:newCart};
 			});
 			get().calculateTotals();
@@ -30,5 +29,34 @@ export const useCartStore = create((set,get)=>({
 		
 			toast.error(error.response.data.message || "An error occurred");
 		}
+	},
+	getCartItems: async()=>{
+		try {
+			const res = await axios.get("/cart");
+			console.log(res.data);
+			set({cart:res.data});
+			get().calculateTotals();
+		} catch (error) {
+			set({cart:[]});
+			toast.error(error.response.data.message||"an error occured");
+		}
+	},
+	removeFromCart: async(productId)=>{
+		await axios.delete(`/cart`,{data:{productId}});
+		set(prevState =>({cart:prevState.cart.filter(item=>item._id !== productId)}));
+		get.calculateTotals();
+	},
+
+	calculateTotals: () => {
+		const { cart, coupon } = get();
+		const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+		let total = subtotal;
+
+		if (coupon) {
+			const discount = subtotal * (coupon.discountPercentage / 100);
+			total = subtotal - discount;
+		}
+
+		set({ subtotal, total });
 	},
 }))

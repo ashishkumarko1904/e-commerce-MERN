@@ -9,15 +9,27 @@ import { useEffect } from "react";
 import Loading from "./components/Loading";
 import Adminpage from "./pages/Adminpage";
 import CartPage from "./pages/CartPage";
+import { useCartStore } from "./stores/useCartStore";
+
 function App() {
   
 const {user,checkAuth,checkingAuth} = useUserStore();
+const {getCartItems} = useCartStore();
 useEffect(()=>{
   checkAuth()
 },[checkAuth]);
+
+useEffect(() => {
+  if (!user) return;
+
+  getCartItems();
+}, [getCartItems, user]);
+
 if(checkingAuth){
   return <Loading/>
 }
+
+
   return (
     <div>
       <Navbar/>

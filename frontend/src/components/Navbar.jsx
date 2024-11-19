@@ -11,6 +11,7 @@ const Navbar = () => {
 //If user is null or undefined, the entire expression user?.role will return undefined instead of throwing an error.
 //If user exists, it will access the role property of user.
 const {cart} = useCartStore();
+
  
   const isAdmin = user?.role === "admin";
 
